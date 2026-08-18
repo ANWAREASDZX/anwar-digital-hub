@@ -85,6 +85,17 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .service-item h3 { margin: 0 0 .25rem; font-size: 1.05rem; }
 .service-item p { margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.65; }
 
+.start-here-section { padding-top: 40px; }
+.entry-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.entry-card { min-height: 270px; display: flex; flex-direction: column; padding: 1.35rem; background: linear-gradient(135deg, rgba(145,121,255,.09), transparent 48%), var(--ink-soft); transition: transform 180ms ease, background 180ms ease, border-color 180ms ease; }
+.entry-card:hover { background: linear-gradient(135deg, rgba(61,232,255,.12), transparent 48%), #102440; transform: translateY(-3px); }
+.entry-card-top { display: flex; align-items: center; justify-content: space-between; }
+.entry-card .path-icon { margin-bottom: 0; }
+.entry-card h3 { margin: 3.6rem 0 .55rem; font-size: 1.2rem; }
+.entry-card p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.75; }
+.entry-link { display: inline-flex; align-items: center; gap: .4rem; margin-top: auto; padding-top: 1rem; color: var(--cyan); font-size: .82rem; }
+.product-cta { margin-top: .75rem; }
+
 .path-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .path-card { min-height: 310px; padding: 1.5rem; position: relative; background: linear-gradient(135deg, rgba(61,232,255,.035), transparent 35%), var(--ink-soft); overflow: hidden; }
 .path-card::after { content: attr(data-no); position: absolute; left: -6px; bottom: -34px; color: rgba(61,232,255,.06); font: 700 8rem/1 var(--font-en); letter-spacing: -.12em; }
@@ -139,10 +150,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .section { padding: 78px 0; }
   .section-intro { grid-template-columns: 1fr; gap: 1.1rem; }
   .service-visual { min-height: 330px; }
-  .path-grid, .process-line { grid-template-columns: 1fr; }
-  .path-card, .process-step { min-height: 210px; border-inline-start: 0; border-top: 1px solid var(--line); }
-  .path-card:first-child, .process-step:first-child { border-top: 0; }
+  .entry-grid, .path-grid, .process-line { grid-template-columns: 1fr; }
+  .entry-card, .path-card, .process-step { min-height: 210px; border-inline-start: 0; border-top: 1px solid var(--line); }
+  .entry-card:first-child, .path-card:first-child, .process-step:first-child { border-top: 0; }
   .path-icon { margin-bottom: 2.8rem; }
+  .entry-card .path-icon { margin-bottom: 0; }
   .product-copy { padding: 3rem 1.4rem; }
   .product-visual { min-height: 300px; background: linear-gradient(180deg, #0a1830 0%, rgba(10,24,48,.14) 70%), url("/anwar-digital-hub/assets/products.png") center/cover; }
   .contact-panel { padding: 1.4rem; min-height: unset; }

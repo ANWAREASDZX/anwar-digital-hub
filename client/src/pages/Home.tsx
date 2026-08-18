@@ -13,7 +13,10 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const telegramBot = "https://t.me/ANWARStudioBot";
+const telegramBot = "https://t.me/ANWARStudioBot?start=site_home";
+const telegramServices = "https://t.me/ANWARStudioBot?start=site_services";
+const telegramProducts = "https://t.me/ANWARStudioBot?start=site_products";
+const telegramContact = "https://t.me/ANWARStudioBot?start=site_contact";
 const instagram = "https://www.instagram.com/tiger.3325838/";
 const github = "https://github.com/ANWAREASDZX";
 
@@ -37,6 +40,12 @@ const process = [
   ["04", "أطلق", "نسلم أصلًا جاهزًا للاستخدام وخطوة تالية عملية."],
 ];
 
+const entryPaths = [
+  { no: "01", title: "أحتاج هوية أو تصميمًا بصريًا", text: "نرتّب الفكرة ونحوّلها إلى نظام بصري واضح وقابل للاستخدام.", href: telegramServices, icon: <Palette size={20} /> },
+  { no: "02", title: "أحتاج صفحة أو تجربة رقمية", text: "نبني واجهة أو مشروعًا رقميًا يشرح نفسه ويخدم هدفه.", href: telegramServices, icon: <Code2 size={20} /> },
+  { no: "03", title: "أبحث عن قالب أو مورد جاهز", text: "تابع إطلاق الكتب والقوالب والموارد العملية القادمة.", href: telegramProducts, icon: <BookOpen size={20} /> },
+];
+
 export default function Home() {
   return (
     <div className="site-shell">
@@ -48,7 +57,7 @@ export default function Home() {
           </a>
           <nav className="nav-links" aria-label="التنقل الرئيسي">
             <a href="#services">الخدمات</a>
-            <a href="#focus">المسارات</a>
+            <a href="#start-here">ابدأ هنا</a>
             <a href="#products">المنتجات</a>
             <a href="#contact">تواصل</a>
           </nav>
@@ -65,7 +74,7 @@ export default function Home() {
               <h1>أصمّم الوضوح.<em>وأبني ما يعمل.</em></h1>
               <p>ANWAR مساحة عمل تجمع التصميم الجرافيكي والبرمجة والموارد الرقمية في مسار واحد: فكرة مفهومة، تجربة منظمة، وأصل قابل للاستخدام.</p>
               <div className="hero-actions">
-                <a className="button-primary" href={telegramBot} target="_blank" rel="noreferrer"><Send size={18} /> تواصل عبر البوت</a>
+                <a className="button-primary" href={telegramBot} target="_blank" rel="noreferrer"><Send size={18} /> ابدأ من البوت</a>
                 <a className="button-quiet" href="#services">استكشف الخدمات <ArrowUpLeft size={17} /></a>
               </div>
             </div>
@@ -100,6 +109,21 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="section start-here-section" id="start-here">
+          <div className="page-wrap">
+            <div className="section-intro">
+              <div><span className="eyebrow">00 / Start Here</span><h2>اختر نقطة البداية المناسبة.</h2></div>
+              <p>لا تحتاج إلى شرح طويل. اختر ما تريد ترتيبه الآن، وأرسل رسالة قصيرة؛ سنحوّلها إلى خطوة عملية واضحة.</p>
+            </div>
+            <div className="entry-grid">
+              {entryPaths.map((path) => <a className="entry-card" href={path.href} target="_blank" rel="noreferrer" key={path.no}>
+                <div className="entry-card-top"><span className="service-index">{path.no}</span><span className="path-icon">{path.icon}</span></div>
+                <h3>{path.title}</h3><p>{path.text}</p><span className="entry-link">أرسل التفاصيل <ArrowUpLeft size={16} /></span>
+              </a>)}
+            </div>
+          </div>
+        </section>
+
         <section className="section" id="focus">
           <div className="page-wrap">
             <div className="section-intro">
@@ -119,8 +143,9 @@ export default function Home() {
             <div className="product-copy">
               <span className="eyebrow">03 / Digital Library</span>
               <h2>موارد تجعل التنفيذ أسرع.</h2>
-              <p>ستجد هنا قريبًا كتبًا وأدلة عملية وقوالب برمجية وموارد تصميمية منتقاة للمبدعين وأصحاب المشاريع. لا وعود عامة؛ فقط أدوات تساعد على إنجاز عمل أفضل.</p>
-              <span className="availability">يتم تجهيز المكتبة الرقمية</span>
+              <p>كتب وأدلة عملية وقوالب برمجية وموارد تصميمية تُبنى لتختصر وقتك وتساعدك على إنجاز عمل أفضل. ابدأ برسالة «مورد» لتصلك الإصدارات الأولى عند إطلاقها.</p>
+              <a className="button-primary product-cta" href={telegramProducts} target="_blank" rel="noreferrer"><BookOpen size={18} /> أرسل «مورد»</a>
+              <span className="availability">المكتبة تُبنى على احتياجات حقيقية</span>
             </div>
             <div className="product-visual" role="img" aria-label="تمثيل بصري لمكتبة ANWAR للمنتجات الرقمية" />
           </div>
@@ -145,9 +170,9 @@ export default function Home() {
               <div className="contact-main">
                 <span className="eyebrow">05 / Contact</span>
                 <h2>لنحوّل الفكرة<br />إلى <span>مسار واضح.</span></h2>
-                <p>البوت الرسمي هو المسار الأسرع لطلبات الخدمات والمنتجات والدعم. ويمكنك أيضًا متابعة العمل والموارد عبر Instagram وGitHub.</p>
+                <p>البوت الرسمي هو المسار الأسرع لطلبات الخدمات والمنتجات والدعم. أرسل نوع احتياجك ومرحلتك الحالية، وسأقترح لك نقطة البداية المناسبة. ويمكنك أيضًا متابعة العمل والموارد عبر Instagram وGitHub.</p>
                 <div className="hero-actions">
-                  <a className="button-primary" href={telegramBot} target="_blank" rel="noreferrer"><MessageCircle size={18} /> @ANWARStudioBot</a>
+                  <a className="button-primary" href={telegramContact} target="_blank" rel="noreferrer"><MessageCircle size={18} /> ابدأ طلبك عبر البوت</a>
                 </div>
                 <div className="social-row" style={{ marginTop: "1.2rem" }}>
                   <a className="social-link" href={instagram} target="_blank" rel="noreferrer"><Instagram size={16} /> Instagram</a>
